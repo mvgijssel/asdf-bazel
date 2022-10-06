@@ -58,11 +58,15 @@ install_bazel() {
   local install_path="$3"
   local tmpdir="$(get_tmpdir)"
   local binary_url="$(get_binary_url $version)"
-  local install_filename="$install_path/bazel"
+  local install_filename="$install_path/bin/bazel"
 
   check_install_type "$install_type"
 
-  curl -L -s -o "$install_filename" "$binary_url"
+  mkdir -p $(dirname "$install_filename")
+
+  curl -L -o "$install_filename" "$binary_url"
+
+  chmod u+x "$install_filename"
 }
 
 install_bazel "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
