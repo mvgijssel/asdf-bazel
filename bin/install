@@ -23,7 +23,7 @@ get_platform() {
 }
 
 get_arch() {
-  uname -m
+  dpkg --print-architecture
 }
 
 get_installer_name() {
