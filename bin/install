@@ -23,7 +23,7 @@ get_platform() {
 }
 
 get_arch() {
-  dpkg --print-architecture
+  uname -m
 }
 
 get_binary_name() {
