@@ -27,7 +27,8 @@ get_arch() {
   # is not detected correctly within docker containers. See
   # https://github.com/moby/moby/issues/40141
   case "$(uname -m)" in \
-    "amd64")  BAZEL_ARCH=amd64 ;; \
+    "amd64")  BAZEL_ARCH=x86_64 ;; \
+    "x86_64")  BAZEL_ARCH=x86_64 ;; \
     "arm64")  BAZEL_ARCH=arm64  ;; \
     "aarch64")  BAZEL_ARCH=arm64  ;; \
     esac \
